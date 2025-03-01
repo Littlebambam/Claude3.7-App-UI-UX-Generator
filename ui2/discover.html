@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTalk - Discover</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF5E7D',
+            secondary: '#42A5F5',
+            accent: '#3BCBB0',
+            light: '#F5F7FF',
+            dark: '#334155'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100%;
+      overflow: hidden;
+    }
+    
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .header {
+      border-bottom: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    }
+    
+    .category-item {
+      transition: all 0.2s ease;
+    }
+    
+    .category-item:hover {
+      transform: translateY(-2px);
+    }
+    
+    .content-container {
+      height: calc(100vh - 140px);
+      overflow-y: auto;
+    }
+    
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 0.5rem 0;
+      border-top: 1px solid rgba(229, 231, 235, 0.5);
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+      width: 20%;
+      text-align: center;
+    }
+    
+    .add-button {
+      margin-top: -1.25rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="h-full w-full bg-white">
+    <!-- Top Bar -->
+    <div class="glass header sticky top-0 px-4 py-3 flex items-center justify-between z-10">
+      <div class="flex items-center">
+        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-secondary to-blue-300 flex items-center justify-center text-white shadow-sm">
+          W
+        </div>
+        <div class="ml-2">
+          <div class="text-dark font-medium">Discover</div>
+          <div class="text-xs text-gray-500">Explore interesting content</div>
+        </div>
+      </div>
+      <div class="flex">
+        <button class="glass w-9 h-9 rounded-full flex items-center justify-center shadow-sm">
+          <i class="ri-search-line text-dark"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div class="content-container no-scrollbar">
+      <!-- Search Bar -->
+      <div class="px-4 pt-3">
+        <div class="glass flex items-center p-2 rounded-full mb-3 shadow-sm">
+          <i class="ri-search-line text-gray-400 mx-2"></i>
+          <input type="text" placeholder="Search users, topics or content" class="bg-transparent flex-1 outline-none text-gray-700 text-sm">
+        </div>
+      </div>
+      
+      <!-- Categories -->
+      <div class="px-4">
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <div class="category-item glass p-3 rounded-xl flex flex-col items-center justify-center shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mb-1">
+              <i class="ri-music-fill text-red-500"></i>
+            </div>
+            <span class="text-xs text-gray-700">Music</span>
+          </div>
+          <div class="category-item glass p-3 rounded-xl flex flex-col items-center justify-center shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-1">
+              <i class="ri-movie-fill text-blue-500"></i>
+            </div>
+            <span class="text-xs text-gray-700">Movies</span>
+          </div>
+          <div class="category-item glass p-3 rounded-xl flex flex-col items-center justify-center shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-1">
+              <i class="ri-restaurant-fill text-green-500"></i>
+            </div>
+            <span class="text-xs text-gray-700">Food</span>
+          </div>
+          <div class="category-item glass p-3 rounded-xl flex flex-col items-center justify-center shadow-sm">
+            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mb-1">
+              <i class="ri-gamepad-fill text-purple-500"></i>
+            </div>
+            <span class="text-xs text-gray-700">Games</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Trending Topics -->
+      <div class="px-4 mb-3">
+        <h3 class="font-bold text-dark mb-2">Trending Topics</h3>
+        <div class="glass rounded-2xl overflow-hidden mb-4">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Music Festival" class="w-full h-32 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-3 text-white">
+              <div class="text-sm font-bold">#SummerMusicFest</div>
+              <div class="text-xs opacity-80">23K people talking</div>
+            </div>
+          </div>
+          <div class="p-3">
+            <div class="flex items-center text-xs text-gray-500 mb-2">
+              <i class="ri-fire-line mr-1 text-primary"></i>
+              <span>Trending up 95%</span>
+            </div>
+            <p class="text-sm text-gray-700">Share your favorite summer music festival moments and feel the magic of music together!</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Recommend Users -->
+      <div class="px-4 mb-3">
+        <div class="flex justify-between items-center mb-2">
+          <h3 class="font-bold text-dark">Suggested Follows</h3>
+          <button class="text-xs text-secondary">See More</button>
+        </div>
+        
+        <div class="glass rounded-2xl p-4 mb-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center">
+              <div class="w-10 h-10 overflow-hidden rounded-full">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="avatar-img">
+              </div>
+              <div class="ml-2">
+                <div class="font-medium text-dark">Creative Designer</div>
+                <div class="text-xs text-gray-500">Sharing design inspiration and ideas</div>
+              </div>
+            </div>
+            <button class="text-xs bg-primary text-white px-3 py-1 rounded-full shadow-sm">
+              Follow
+            </button>
+          </div>
+          
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center">
+              <div class="w-10 h-10 overflow-hidden rounded-full">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="avatar-img">
+              </div>
+              <div class="ml-2">
+                <div class="font-medium text-dark">Travel Explorer</div>
+                <div class="text-xs text-gray-500">World travel, sharing beautiful views</div>
+              </div>
+            </div>
+            <button class="text-xs bg-primary text-white px-3 py-1 rounded-full shadow-sm">
+              Follow
+            </button>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 overflow-hidden rounded-full">
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="avatar-img">
+              </div>
+              <div class="ml-2">
+                <div class="font-medium text-dark">Food & Lifestyle</div>
+                <div class="text-xs text-gray-500">Food recipes and quality living</div>
+              </div>
+            </div>
+            <button class="text-xs bg-primary text-white px-3 py-1 rounded-full shadow-sm">
+              Follow
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <div class="nav-item">
+        <i class="ri-home-5-line text-gray-400 text-xl"></i>
+        <span class="text-xs mt-0.5 text-gray-400">Home</span>
+      </div>
+      <div class="nav-item">
+        <i class="ri-compass-3-fill text-primary text-xl"></i>
+        <span class="text-xs mt-0.5 text-primary font-medium">Discover</span>
+      </div>
+      <div class="nav-item add-button">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
+          <i class="ri-add-line text-white text-2xl"></i>
+        </div>
+      </div>
+      <div class="nav-item">
+        <i class="ri-message-2-line text-gray-400 text-xl"></i>
+        <span class="text-xs mt-0.5 text-gray-400">Messages</span>
+      </div>
+      <div class="nav-item">
+        <i class="ri-user-3-line text-gray-400 text-xl"></i>
+        <span class="text-xs mt-0.5 text-gray-400">Profile</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTalk - Social App for Young People</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF5E7D',
+            secondary: '#42A5F5',
+            accent: '#3BCBB0',
+            light: '#F5F7FF',
+            dark: '#334155'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+    
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    .glass {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    
+    .app-container {
+      display: flex;
+      padding: 2rem;
+      gap: 1.5rem;
+      overflow-x: auto;
+      min-height: 100vh;
+      align-items: flex-start;
+    }
+    
+    .phone-mockup {
+      width: 340px;
+      height: 680px;
+      flex-shrink: 0;
+      border-radius: 32px;
+      padding: 12px;
+      background: linear-gradient(45deg, #e0e0e0, #f5f5f5);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background-color: white;
+    }
+    
+    .notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 24px;
+      background-color: #fff;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    
+    <!-- Login Page -->
+    <div class="phone-mockup">
+      <div class="notch"></div>
+      <div class="phone-screen bg-gradient-to-b from-blue-50 to-purple-50">
+        <div class="h-full flex flex-col items-center justify-between py-14 px-6">
+          <!-- Logo and Header -->
+          <div class="w-full text-center mt-10">
+            <div class="text-5xl font-bold mb-2 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">WeTalk</div>
+            <p class="text-slate-500">Connect, Share, Live</p>
+          </div>
+          
+          <!-- Login Form -->
+          <div class="glass w-full p-6 rounded-2xl">
+            <div class="mb-4">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+              <div class="flex items-center bg-white border border-gray-200 rounded-lg px-3 py-2">
+                <i class="ri-smartphone-line text-gray-400 mr-2"></i>
+                <input type="tel" placeholder="Enter your phone number" class="w-full outline-none text-gray-700">
+              </div>
+            </div>
+            
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <div class="flex items-center bg-white border border-gray-200 rounded-lg px-3 py-2">
+                <i class="ri-lock-line text-gray-400 mr-2"></i>
+                <input type="password" placeholder="Enter your password" class="w-full outline-none text-gray-700">
+              </div>
+            </div>
+            
+            <button class="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-lg font-medium shadow-lg shadow-primary/20">
+              Log In
+            </button>
+            
+            <div class="mt-4 text-center text-sm">
+              <a href="#" class="text-secondary">Forgot Password?</a>
+              <span class="text-gray-400 mx-2">|</span>
+              <a href="#" class="text-secondary">Sign Up</a>
+            </div>
+          </div>
+          
+          <!-- Social Login -->
+          <div class="w-full">
+            <div class="flex items-center my-6">
+              <div class="flex-grow h-px bg-gray-200"></div>
+              <span class="mx-4 text-sm text-gray-400">Or login with</span>
+              <div class="flex-grow h-px bg-gray-200"></div>
+            </div>
+            
+            <div class="flex justify-center space-x-6">
+              <button class="glass w-12 h-12 rounded-full flex items-center justify-center">
+                <i class="ri-google-fill text-red-500 text-xl"></i>
+              </button>
+              <button class="glass w-12 h-12 rounded-full flex items-center justify-center">
+                <i class="ri-facebook-fill text-blue-500 text-xl"></i>
+              </button>
+              <button class="glass w-12 h-12 rounded-full flex items-center justify-center">
+                <i class="ri-twitter-x-fill text-dark text-xl"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Home Page -->
+    <div class="phone-mockup">
+      <div class="notch"></div>
+      <div class="phone-screen bg-light">
+        <!-- Top Bar -->
+        <div class="glass sticky top-0 px-4 py-3 flex items-center justify-between z-10">
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-pink-400 flex items-center justify-center text-white">
+              W
+            </div>
+            <div class="ml-2">
+              <div class="text-dark font-medium">WeTalk</div>
+              <div class="text-xs text-gray-500">Explore more</div>
+            </div>
+          </div>
+          <div class="flex items-center space-x-3">
+            <button class="glass w-9 h-9 rounded-full flex items-center justify-center">
+              <i class="ri-search-line text-dark"></i>
+            </button>
+            <button class="glass w-9 h-9 rounded-full flex items-center justify-center relative">
+              <i class="ri-notification-3-line text-dark"></i>
+              <span class="absolute top-0 right-0 w-2.5 h-2.5 bg-primary rounded-full"></span>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Stories -->
+        <div class="px-4 pt-3 pb-1">
+          <div class="flex space-x-3 overflow-x-auto no-scrollbar py-2">
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-r from-primary to-secondary flex-shrink-0">
+                <div class="bg-white w-full h-full rounded-full flex items-center justify-center">
+                  <i class="ri-add-line text-primary text-xl"></i>
+                </div>
+              </div>
+              <span class="text-xs mt-1 text-gray-600">Add</span>
+            </div>
+            
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-r from-primary to-secondary flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-full h-full object-cover rounded-full">
+              </div>
+              <span class="text-xs mt-1 text-gray-600">Emma</span>
+            </div>
+            
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-r from-primary to-secondary flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-full h-full object-cover rounded-full">
+              </div>
+              <span class="text-xs mt-1 text-gray-600">Mike</span>
+            </div>
+            
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-br from-gray-200 to-gray-300 flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-full h-full object-cover rounded-full">
+              </div>
+              <span class="text-xs mt-1 text-gray-600">Jack</span>
+            </div>
+            
+            <div class="flex flex-col items-center">
+              <div class="w-16 h-16 rounded-full p-0.5 bg-gradient-to-br from-gray-200 to-gray-300 flex-shrink-0">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-full h-full object-cover rounded-full">
+              </div>
+              <span class="text-xs mt-1 text-gray-600">Sarah</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Categories -->
+        <div class="px-4 pt-1 pb-3">
+          <div class="flex justify-between items-center no-scrollbar overflow-x-auto py-1">
+            <button class="px-4 py-1.5 bg-primary text-white rounded-full text-sm font-medium">
+              For You
+            </button>
+            <button class="px-4 py-1.5 glass rounded-full text-sm text-dark font-medium">
+              Trending
+            </button>
+            <button class="px-4 py-1.5 glass rounded-full text-sm text-dark font-medium">
+              Following
+            </button>
+            <button class="px-4 py-1.5 glass rounded-full text-sm text-dark font-medium">
+              Nearby
+            </button>
+          </div>
+        </div>
+        
+        <!-- Content Feed -->
+        <div class="px-4 pb-20">
+          <!-- Post 1 -->
+          <div class="glass rounded-2xl p-4 mb-4">
+            <div class="flex items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+              <div class="ml-2">
+                <div class="font-medium text-dark">Emma</div>
+                <div class="text-xs text-gray-500">2 minutes ago</div>
+              </div>
+              <button class="ml-auto text-gray-400">
+                <i class="ri-more-2-fill"></i>
+              </button>
+            </div>
+            <p class="text-gray-700 mb-3">Visited the new cat café today! So many adorable kitties to share with you all 😻</p>
+            <div class="grid grid-cols-2 gap-2 mb-3">
+              <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Cat" class="w-full h-32 object-cover rounded-lg">
+              <img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Cat" class="w-full h-32 object-cover rounded-lg">
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <button class="flex items-center text-gray-500">
+                <i class="ri-heart-line mr-1"></i> 42
+              </button>
+              <button class="flex items-center text-gray-500">
+                <i class="ri-chat-1-line mr-1"></i> 8
+              </button>
+              <button class="flex items-center text-gray-500">
+                <i class="ri-share-forward-line mr-1"></i> Share
+              </button>
+            </div>
+          </div>
+          
+          <!-- Post 2 -->
+          <div class="glass rounded-2xl p-4 mb-4">
+            <div class="flex items-center mb-3">
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+              <div class="ml-2">
+                <div class="font-medium text-dark">Jack</div>
+                <div class="text-xs text-gray-500">1 hour ago</div>
+              </div>
+              <button class="ml-auto text-gray-400">
+                <i class="ri-more-2-fill"></i>
+              </button>
+            </div>
+            <p class="text-gray-700 mb-3">Went hiking this weekend. The view was amazing! Anyone want to join next weekend?</p>
+            <div class="mb-3">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Mountain" class="w-full h-48 object-cover rounded-lg">
+            </div>
+            <div class="flex items-center justify-between text-sm">
+              <button class="flex items-center text-gray-500">
+                <i class="ri-heart-line mr-1"></i> 78
+              </button>
+              <button class="flex items-center text-gray-500">
+                <i class="ri-chat-1-line mr-1"></i> 23
+              </button>
+              <button class="flex items-center text-gray-500">
+                <i class="ri-share-forward-line mr-1"></i> Share
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="glass fixed bottom-0 inset-x-0 flex justify-around items-center py-2 px-6">
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-home-5-fill text-primary text-xl"></i>
+            <span class="text-xs mt-0.5 text-primary font-medium">Home</span>
+          </button>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-compass-3-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Discover</span>
+          </button>
+          <div class="relative -mt-5">
+            <button class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
+              <i class="ri-add-line text-white text-2xl"></i>
+            </button>
+          </div>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-message-2-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Messages</span>
+          </button>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-user-3-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Discover Page -->
+    <div class="phone-mockup">
+      <div class="notch"></div>
+      <div class="phone-screen bg-white">
+        <!-- Top Bar -->
+        <div class="glass sticky top-0 px-4 py-3 flex items-center justify-between z-10">
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-secondary to-blue-300 flex items-center justify-center text-white">
+              W
+            </div>
+            <div class="ml-2">
+              <div class="text-dark font-medium">Discover</div>
+              <div class="text-xs text-gray-500">Explore interesting content</div>
+            </div>
+          </div>
+          <div class="flex">
+            <button class="glass w-9 h-9 rounded-full flex items-center justify-center">
+              <i class="ri-search-line text-dark"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Search Bar -->
+        <div class="px-4 pt-3">
+          <div class="glass flex items-center p-2 rounded-full mb-3">
+            <i class="ri-search-line text-gray-400 mx-2"></i>
+            <input type="text" placeholder="Search users, topics or content" class="bg-transparent flex-1 outline-none text-gray-700 text-sm">
+          </div>
+        </div>
+        
+        <!-- Categories -->
+        <div class="px-4">
+          <div class="grid grid-cols-4 gap-2 mb-4">
+            <div class="glass p-3 rounded-xl flex flex-col items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mb-1">
+                <i class="ri-netease-cloud-music-line text-red-500"></i>
+              </div>
+              <span class="text-xs text-gray-700">Music</span>
+            </div>
+            <div class="glass p-3 rounded-xl flex flex-col items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mb-1">
+                <i class="ri-movie-line text-blue-500"></i>
+              </div>
+              <span class="text-xs text-gray-700">Movies</span>
+            </div>
+            <div class="glass p-3 rounded-xl flex flex-col items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mb-1">
+                <i class="ri-restaurant-line text-green-500"></i>
+              </div>
+              <span class="text-xs text-gray-700">Food</span>
+            </div>
+            <div class="glass p-3 rounded-xl flex flex-col items-center justify-center">
+              <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mb-1">
+                <i class="ri-game-line text-purple-500"></i>
+              </div>
+              <span class="text-xs text-gray-700">Games</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Trending Topics -->
+        <div class="px-4 mb-3">
+          <h3 class="font-bold text-dark mb-2">Trending Topics</h3>
+          <div class="glass rounded-2xl overflow-hidden mb-4">
+            <div class="relative">
+              <img src="https://images.unsplash.com/photo-1596450494746-30a1a540061e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="Music Festival" class="w-full h-32 object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-3 text-white">
+                <div class="text-sm font-bold">#SummerMusicFest</div>
+                <div class="text-xs opacity-80">23K people talking</div>
+              </div>
+            </div>
+            <div class="p-3">
+              <div class="flex items-center text-xs text-gray-500 mb-2">
+                <i class="ri-fire-line mr-1 text-primary"></i>
+                <span>Trending up 95%</span>
+              </div>
+              <p class="text-sm text-gray-700">Share your favorite summer music festival moments and feel the magic of music together!</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Recommend Users -->
+        <div class="px-4 mb-3">
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="font-bold text-dark">Suggested Follows</h3>
+            <button class="text-xs text-secondary">See More</button>
+          </div>
+          
+          <div class="glass rounded-2xl p-4 mb-4">
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                <div class="ml-2">
+                  <div class="font-medium text-dark">Creative Designer</div>
+                  <div class="text-xs text-gray-500">Sharing design inspiration and ideas</div>
+                </div>
+              </div>
+              <button class="text-xs bg-primary text-white px-3 py-1 rounded-full">
+                Follow
+              </button>
+            </div>
+            
+            <div class="flex items-center justify-between mb-3">
+              <div class="flex items-center">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                <div class="ml-2">
+                  <div class="font-medium text-dark">Travel Explorer</div>
+                  <div class="text-xs text-gray-500">World travel, sharing beautiful views</div>
+                </div>
+              </div>
+              <button class="text-xs bg-primary text-white px-3 py-1 rounded-full">
+                Follow
+              </button>
+            </div>
+            
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User" class="w-10 h-10 rounded-full">
+                <div class="ml-2">
+                  <div class="font-medium text-dark">Food & Lifestyle</div>
+                  <div class="text-xs text-gray-500">Food recipes and quality living</div>
+                </div>
+              </div>
+              <button class="text-xs bg-primary text-white px-3 py-1 rounded-full">
+                Follow
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="glass fixed bottom-0 inset-x-0 flex justify-around items-center py-2 px-6">
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-home-5-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Home</span>
+          </button>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-compass-3-fill text-primary text-xl"></i>
+            <span class="text-xs mt-0.5 text-primary font-medium">Discover</span>
+          </button>
+          <div class="relative -mt-5">
+            <button class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg">
+              <i class="ri-add-line text-white text-2xl"></i>
+            </button>
+          </div>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-message-2-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Messages</span>
+          </button>
+          <button class="flex flex-col items-center px-2 py-1">
+            <i class="ri-user-3-line text-gray-400 text-xl"></i>
+            <span class="text-xs mt-0.5 text-gray-400">Profile</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
+</html> 

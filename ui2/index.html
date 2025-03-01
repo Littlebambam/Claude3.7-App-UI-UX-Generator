@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeTalk - Social App</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF5E7D',
+            secondary: '#42A5F5',
+            accent: '#3BCBB0',
+            light: '#F5F7FF',
+            dark: '#334155'
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f4f8;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      width: 100vw;
+    }
+    
+    .app-container {
+      display: flex;
+      padding: 2rem;
+      gap: 2rem;
+      overflow-x: auto;
+      overflow-y: hidden;
+      min-height: 100vh;
+      align-items: flex-start;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE and Edge */
+    }
+    
+    .app-container::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .phone-mockup {
+      width: 340px;
+      height: 680px;
+      flex-shrink: 0;
+      border-radius: 36px;
+      padding: 12px;
+      background: linear-gradient(145deg, #e6e6e6, #ffffff);
+      box-shadow: 
+        0 25px 50px -12px rgba(0, 0, 0, 0.15),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.05),
+        inset 0 3px 6px rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      position: relative;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      background-color: white;
+      box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 150px;
+      height: 24px;
+      background-color: #fff;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
+      z-index: 10;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .notch:before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      background-color: #333;
+      border-radius: 50%;
+    }
+    
+    .phone-button {
+      position: absolute;
+      right: -2px;
+      top: 100px;
+      width: 3px;
+      height: 40px;
+      background-color: #d0d0d0;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+    }
+    
+    .phone-button.volume-up {
+      top: 100px;
+    }
+    
+    .phone-button.volume-down {
+      top: 150px;
+    }
+    
+    .phone-button.power {
+      top: 200px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      overflow: hidden;
+    }
+    
+    .phone-label {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 500;
+      color: #64748b;
+    }
+
+    .all-pages-section {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    .page-container {
+      width: 100%;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+
+    .page-header {
+      background-color: #f8fafc;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid #e2e8f0;
+      font-weight: 600;
+      color: #334155;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .page-iframe {
+      width: 100%;
+      height: 500px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="all-pages-section">
+    <h2 class="text-2xl font-bold text-center mb-4 text-gray-800">All UI Pages</h2>
+    
+    <!-- UI2 Directory Pages -->
+    <h3 class="text-xl font-semibold mt-4 mb-2 text-gray-700">UI2 Directory</h3>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>SJ Page</span>
+        <span class="text-sm text-gray-500">ui2/sj.html</span>
+      </div>
+      <iframe src="sj.html" class="page-iframe" title="SJ Page"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Login Page</span>
+        <span class="text-sm text-gray-500">ui2/login.html</span>
+      </div>
+      <iframe src="login.html" class="page-iframe" title="Login Page"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Home Page</span>
+        <span class="text-sm text-gray-500">ui2/home.html</span>
+      </div>
+      <iframe src="home.html" class="page-iframe" title="Home Page"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Discover Page</span>
+        <span class="text-sm text-gray-500">ui2/discover.html</span>
+      </div>
+      <iframe src="discover.html" class="page-iframe" title="Discover Page"></iframe>
+    </div>
+    
+    <!-- Root Directory Pages -->
+    <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-700">Root Directory</h3>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Chat Detail</span>
+        <span class="text-sm text-gray-500">chat-detail.html</span>
+      </div>
+      <iframe src="../chat-detail.html" class="page-iframe" title="Chat Detail"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Chat List</span>
+        <span class="text-sm text-gray-500">chat-list.html</span>
+      </div>
+      <iframe src="../chat-list.html" class="page-iframe" title="Chat List"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Example</span>
+        <span class="text-sm text-gray-500">example.html</span>
+      </div>
+      <iframe src="../example.html" class="page-iframe" title="Example"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Home (Root)</span>
+        <span class="text-sm text-gray-500">home.html</span>
+      </div>
+      <iframe src="../home.html" class="page-iframe" title="Home (Root)"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Home 2</span>
+        <span class="text-sm text-gray-500">home2.html</span>
+      </div>
+      <iframe src="../home2.html" class="page-iframe" title="Home 2"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Root Index</span>
+        <span class="text-sm text-gray-500">index.html</span>
+      </div>
+      <iframe src="../index.html" class="page-iframe" title="Root Index"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Login (Root)</span>
+        <span class="text-sm text-gray-500">login.html</span>
+      </div>
+      <iframe src="../login.html" class="page-iframe" title="Login (Root)"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Profile</span>
+        <span class="text-sm text-gray-500">profile.html</span>
+      </div>
+      <iframe src="../profile.html" class="page-iframe" title="Profile"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Settings</span>
+        <span class="text-sm text-gray-500">settings.html</span>
+      </div>
+      <iframe src="../settings.html" class="page-iframe" title="Settings"></iframe>
+    </div>
+    
+    <!-- Light Directory Pages -->
+    <h3 class="text-xl font-semibold mt-6 mb-2 text-gray-700">Light Directory</h3>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Light Profile</span>
+        <span class="text-sm text-gray-500">light/profile.html</span>
+      </div>
+      <iframe src="../light/profile.html" class="page-iframe" title="Light Profile"></iframe>
+    </div>
+    
+    <div class="page-container">
+      <div class="page-header">
+        <span>Light Settings</span>
+        <span class="text-sm text-gray-500">light/settings.html</span>
+      </div>
+      <iframe src="../light/settings.html" class="page-iframe" title="Light Settings"></iframe>
+    </div>
+  </section>
+  
+  <div class="app-container">
+    
+    <!-- Login Page -->
+    <div class="flex flex-col items-center">
+      <div class="phone-mockup">
+        <div class="notch"></div>
+        <div class="phone-button volume-up"></div>
+        <div class="phone-button volume-down"></div>
+        <div class="phone-button power"></div>
+        <div class="phone-screen">
+          <iframe src="login.html" title="Login Page"></iframe>
+        </div>
+      </div>
+      <div class="phone-label">Login Screen</div>
+    </div>
+    
+    <!-- Home Page -->
+    <div class="flex flex-col items-center">
+      <div class="phone-mockup">
+        <div class="notch"></div>
+        <div class="phone-button volume-up"></div>
+        <div class="phone-button volume-down"></div>
+        <div class="phone-button power"></div>
+        <div class="phone-screen">
+          <iframe src="home.html" title="Home Page"></iframe>
+        </div>
+      </div>
+      <div class="phone-label">Home Screen</div>
+    </div>
+    
+    <!-- Discover Page -->
+    <div class="flex flex-col items-center">
+      <div class="phone-mockup">
+        <div class="notch"></div>
+        <div class="phone-button volume-up"></div>
+        <div class="phone-button volume-down"></div>
+        <div class="phone-button power"></div>
+        <div class="phone-screen">
+          <iframe src="discover.html" title="Discover Page"></iframe>
+        </div>
+      </div>
+      <div class="phone-label">Discover Screen</div>
+    </div>
+    
+  </div>
+
+  <script>
+    // Add event listeners for navigation between pages if needed
+    document.addEventListener('DOMContentLoaded', function() {
+      // This can be expanded to handle navigation between pages
+      // For example, clicking on navigation buttons could change the iframe src
+    });
+  </script>
+</body>
+</html> 
