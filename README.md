@@ -22,6 +22,9 @@ A powerful prompt for Claude to generate perfect App UI/UX designs with modern a
    - ⚠️ Carefully edit any repeated sections at cutoff points
 4. 💾 Save the HTML file
 5. 🌐 Open in your browser to view the result
+<img width="1133" alt="image" src="https://github.com/user-attachments/assets/b2052b59-2a56-46d5-820c-abac9bd06ceb" />
 
 ---
 *Generate beautiful, functional UI/UX designs with the power of AI* ✨
+
+If you need help using AI to generate app or webpage UI/UX, feel free to contact me at hi@hqman.us.
