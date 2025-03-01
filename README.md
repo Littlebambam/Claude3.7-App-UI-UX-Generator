@@ -26,3 +26,5 @@ A powerful prompt for Claude to generate perfect App UI/UX designs with modern a
 
 ---
 *Generate beautiful, functional UI/UX designs with the power of AI* ✨
+
+If you need help using AI to generate app or webpage UI/UX, feel free to contact me at hi@hqman.us.
