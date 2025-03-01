@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Pages View</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .frame-container {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .frame-title {
+            padding: 10px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ccc;
+            font-weight: bold;
+        }
+        iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Pages View</h1>
+    <div class="grid-container">
+       
+        <div class="frame-container">
+            <div class="frame-title">profile.html</div>
+            <iframe src="profile.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">home.html</div>
+            <iframe src="home.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">chat-list.html</div>
+            <iframe src="chat-list.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">login.html</div>
+            <iframe src="login.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">settings.html</div>
+            <iframe src="settings.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">chat-detail.html</div>
+            <iframe src="chat-detail.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">light/profile.html</div>
+            <iframe src="light/profile.html"></iframe>
+        </div>
+        <div class="frame-container">
+            <div class="frame-title">light/settings.html</div>
+            <iframe src="light/settings.html"></iframe>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark - Settings</title>
+  <style>
+    :root {
+      --primary: #FF3366;
+      --primary-dark: #E6264D;
+      --bg-dark: #1A1A1A;
+      --bg-card: #252525;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-tertiary: rgba(255, 255, 255, 0.5);
+      --border-light: rgba(255, 255, 255, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      padding: var(--space-md);
+      display: flex;
+      align-items: center;
+    }
+
+    .back-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      margin-right: var(--space-md);
+    }
+
+    .header-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .settings-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 0 var(--space-md) var(--space-md);
+    }
+
+    .settings-section {
+      margin-bottom: var(--space-lg);
+    }
+
+    .settings-section-title {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      margin-bottom: var(--space-sm);
+      padding: 0 var(--space-sm);
+    }
+
+    .settings-list {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .settings-item {
+      display: flex;
+      align-items: center;
+      padding: var(--space-md);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .settings-item:last-child {
+      border-bottom: none;
+    }
+
+    .settings-icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: var(--space-md);
+      color: var(--text-secondary);
+    }
+
+    .settings-label {
+      flex: 1;
+    }
+
+    .settings-value {
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+    }
+
+    .settings-arrow {
+      margin-left: var(--space-sm);
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .toggle-slider {
+      background-color: var(--primary);
+    }
+
+    input:checked + .toggle-slider:before {
+      transform: translateX(22px);
+    }
+
+    .logout-button {
+      background: transparent;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-md);
+      font-size: 16px;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+      margin-top: var(--space-lg);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="header">
+      <button class="back-button">←</button>
+      <h1 class="header-title">Settings</h1>
+    </header>
+
+    <div class="settings-content">
+      <div class="settings-section">
+        <h3 class="settings-section-title">Account</h3>
+        <div class="settings-list">
+          <div class="settings-item">
+            <div class="settings-icon">👤</div>
+            <div class="settings-label">Profile</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">🔒</div>
+            <div class="settings-label">Privacy Settings</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">🔔</div>
+            <div class="settings-label">Notifications</div>
+            <div class="settings-value">
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3 class="settings-section-title">Preferences</h3>
+        <div class="settings-list">
+          <div class="settings-item">
+            <div class="settings-icon">🎯</div>
+            <div class="settings-label">Matching Preferences</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">🌍</div>
+            <div class="settings-label">Location</div>
+            <div class="settings-value">
+              <span>Shanghai</span>
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">🌙</div>
+            <div class="settings-label">Dark Mode</div>
+            <div class="settings-value">
+              <label class="toggle-switch">
+                <input type="checkbox" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3 class="settings-section-title">Other</h3>
+        <div class="settings-list">
+          <div class="settings-item">
+            <div class="settings-icon">❓</div>
+            <div class="settings-label">Help & Feedback</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">📜</div>
+            <div class="settings-label">Terms of Service</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">🔒</div>
+            <div class="settings-label">Privacy Policy</div>
+            <div class="settings-value">
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon">ℹ️</div>
+            <div class="settings-label">About</div>
+            <div class="settings-value">
+              <span>Version 1.0.0</span>
+              <span class="settings-arrow">›</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="logout-button">Log Out</button>
+    </div>
+  </div>
+</body>
+</html>

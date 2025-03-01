@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spark - Chat</title>
+  <style>
+    :root {
+      --primary: #FF3366;
+      --primary-dark: #E6264D;
+      --bg-dark: #1A1A1A;
+      --bg-card: #252525;
+      --text-primary: #FFFFFF;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --text-tertiary: rgba(255, 255, 255, 0.5);
+      --border-light: rgba(255, 255, 255, 0.1);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 20px;
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+    }
+
+    .app-container {
+      max-width: 480px;
+      margin: 0 auto;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chat-header {
+      padding: var(--space-md);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .back-button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      margin-right: var(--space-md);
+    }
+
+    .chat-user {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: var(--space-md);
+    }
+
+    .chat-user-name {
+      font-weight: 600;
+    }
+
+    .chat-options {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+
+    .messages-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: var(--space-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .date-divider {
+      text-align: center;
+      margin: var(--space-md) 0;
+      color: var(--text-tertiary);
+      font-size: 12px;
+    }
+
+    .message {
+      max-width: 70%;
+      margin-bottom: var(--space-md);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .message-received {
+      align-self: flex-start;
+    }
+
+    .message-sent {
+      align-self: flex-end;
+    }
+
+    .message-bubble {
+      padding: var(--space-md);
+      border-radius: var(--radius-md);
+      font-size: 14px;
+    }
+
+    .message-received .message-bubble {
+      background: var(--bg-card);
+      border-bottom-left-radius: 4px;
+    }
+
+    .message-sent .message-bubble {
+      background: var(--primary);
+      border-bottom-right-radius: 4px;
+    }
+
+    .message-time {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: var(--space-xs);
+      align-self: flex-end;
+    }
+
+    .message-received .message-time {
+      align-self: flex-start;
+    }
+
+    .chat-input-container {
+      padding: var(--space-md);
+      border-top: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+    }
+
+    .chat-input {
+      flex: 1;
+      padding: var(--space-md);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-full);
+      color: var(--text-primary);
+      font-size: 14px;
+      margin-right: var(--space-md);
+    }
+
+    .chat-input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    .send-button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-container">
+    <header class="chat-header">
+      <button class="back-button">←</button>
+      <div class="chat-user">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330" alt="Xiao Yu" class="chat-avatar">
+        <span class="chat-user-name">Xiao Yu</span>
+      </div>
+      <button class="chat-options">⋮</button>
+    </header>
+
+    <div class="messages-container">
+      <div class="date-divider">Today</div>
+      
+      <div class="message message-received">
+        <div class="message-bubble">
+          Hi! Looking at your photos, you seem to really enjoy traveling?
+        </div>
+        <span class="message-time">10:15</span>
+      </div>
+      
+      <div class="message message-sent">
+        <div class="message-bubble">
+          Yes! I especially love exploring different places and taking photos to capture beautiful moments. How about you?
+        </div>
+        <span class="message-time">10:18</span>
+      </div>
+      
+      <div class="message message-received">
+        <div class="message-bubble">
+          I love it too! I recently went to Yunnan, the scenery there was amazing. Maybe we could go hiking together or chat at a coffee shop sometime?
+        </div>
+        <span class="message-time">10:25</span>
+      </div>
+      
+      <div class="message message-sent">
+        <div class="message-bubble">
+          Sounds good! I know a newly opened coffee shop downtown with a great atmosphere. Are you free this weekend?
+        </div>
+        <span class="message-time">10:30</span>
+      </div>
+      
+      <div class="message message-received">
+        <div class="message-bubble">
+          This weekend works for me. How about Saturday afternoon?
+        </div>
+        <span class="message-time">10:45</span>
+      </div>
+      
+      <div class="message message-sent">
+        <div class="message-bubble">
+          Saturday at 2pm, I'll send you the address later!
+        </div>
+        <span class="message-time">11:00</span>
+      </div>
+      
+      <div class="message message-received">
+        <div class="message-bubble">
+          Great, it's a deal then! See you this weekend~
+        </div>
+        <span class="message-time">12:30</span>
+      </div>
+    </div>
+
+    <div class="chat-input-container">
+      <input type="text" class="chat-input" placeholder="Send a message...">
+      <button class="send-button">↑</button>
+    </div>
+  </div>
+</body>
+</html>
