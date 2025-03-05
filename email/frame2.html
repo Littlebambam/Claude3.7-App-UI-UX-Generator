@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frame 2</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+        }
+        .frame2 {
+            background-color: #1ED36D;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 80%;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .link-to-frame1 {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #6B2929;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="frame2">
+        <div class="content">
+            <h1>Frame 2</h1>
+            <p>这是基于Figma设计稿创建的第二个页面，背景色为绿色 (#1ED36D)。</p>
+            <a href="frame1.html" class="link-to-frame1">返回 Frame 1</a>
+        </div>
+    </div>
+</body>
+</html>

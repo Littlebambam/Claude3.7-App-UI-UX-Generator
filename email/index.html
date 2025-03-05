@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .screens-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .phone-frame {
+            position: relative;
+            width: 393px;
+            height: 852px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .phone-frame iframe {
+            border: 12px solid #000000;
+            border-radius: 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        /* iPhone notch */
+        .phone-frame:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 25px;
+            background-color: #000000;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+            z-index: 10;
+        }
+        
+        .phone-label {
+            margin-top: 15px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            color: #333;
+            max-width: 393px;
+            word-wrap: break-word;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold text-black text-center mb-6">iPhone 16 Email App Interface Showcase</h1>
+        
+        <div class="screens-container">
+            <div class="phone-frame">
+                <iframe src="inbox.html" frameborder="0" width="393" height="852" class="overflow-hidden"></iframe>
+                <div class="phone-label">Inbox<br>View</div>
+            </div>
+            
+            <div class="phone-frame">
+                <iframe src="detail.html" frameborder="0" width="393" height="852" class="overflow-hidden"></iframe>
+                <div class="phone-label">Email Detail<br>View</div>
+            </div>
+            
+            <div class="phone-frame">
+                <iframe src="contacts.html" frameborder="0" width="393" height="852" class="overflow-hidden"></iframe>
+                <div class="phone-label">Contacts<br>View</div>
+            </div>
+            
+            <div class="phone-frame">
+                <iframe src="documents.html" frameborder="0" width="393" height="852" class="overflow-hidden"></iframe>
+                <div class="phone-label">Documents<br>View</div>
+            </div>
+            
+            <div class="phone-frame">
+                <iframe src="profile.html" frameborder="0" width="393" height="852" class="overflow-hidden"></iframe>
+                <div class="phone-label">Profile<br>View</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Detail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f9fafb;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 852px;
+            width: 393px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Custom scrollbar */
+        .custom-scrollbar {
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background: transparent;
+        }
+        
+        /* iOS Status Bar */
+        .ios-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 15px 0;
+            height: 44px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #f8f9fa;
+        }
+        
+        .ios-status-bar .time {
+            font-weight: 600;
+        }
+        
+        .ios-status-bar .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ios-status-bar .signal-bars {
+            display: flex;
+            align-items: flex-end;
+            height: 12px;
+            margin-right: 5px;
+        }
+        
+        .ios-status-bar .signal-bars .bar {
+            width: 3px;
+            background-color: #000;
+            margin-right: 1px;
+            border-radius: 1px;
+        }
+        
+        .ios-status-bar .signal-bars .bar:nth-child(1) { height: 5px; }
+        .ios-status-bar .signal-bars .bar:nth-child(2) { height: 7px; }
+        .ios-status-bar .signal-bars .bar:nth-child(3) { height: 9px; }
+        .ios-status-bar .signal-bars .bar:nth-child(4) { height: 11px; }
+        
+        .ios-status-bar .battery {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .ios-status-bar .battery-icon {
+            width: 25px;
+            height: 12px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            padding: 1px;
+            position: relative;
+            margin-left: 5px;
+        }
+        
+        .ios-status-bar .battery-icon:after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: -3px;
+            width: 2px;
+            height: 4px;
+            background: #000;
+            border-radius: 0 2px 2px 0;
+        }
+        
+        .ios-status-bar .battery-level {
+            height: 100%;
+            width: 80%;
+            background: #000;
+            border-radius: 1px;
+        }
+        
+        /* Safe area padding to avoid notch/dynamic island */
+        .safe-area-right {
+            padding-right: 24px !important; /* 保证安全区域内边距 */
+        }
+        
+        .email-content {
+            max-width: calc(100% - 24px); /* 确保内容不超出右侧安全区域 */
+        }
+    </style>
+</head>
+<body class="bg-white">
+    
+    <div class="h-full flex flex-col">
+        <!-- iOS Status Bar -->
+        <div class="ios-status-bar">
+            <div class="time">15:30</div>
+            <div class="right-icons">
+                <div class="signal-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="wifi">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="battery">
+                    88%
+                    <div class="battery-icon">
+                        <div class="battery-level"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Header -->
+        <div class="bg-white py-3 px-4 border-b border-gray-200 sticky top-0">
+            <div class="flex items-center mb-3">
+                <button class="mr-3 text-gray-600">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <div class="flex-1 flex items-center">
+                    <h1 class="text-lg font-bold text-black">Email</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="text-gray-600">
+                        <i class="fas fa-archive"></i>
+                    </button>
+                    <button class="text-gray-600">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                    <button class="text-gray-600">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Email Content -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar">
+            <!-- Email Subject and Sender -->
+            <div class="px-4 py-4 bg-white">
+                <h3 class="text-xl font-bold text-black safe-area-right">Security alert for your repository</h3>
+                
+                <div class="flex items-center mt-3">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <span class="text-blue-600 font-semibold">G</span>
+                    </div>
+                    <div class="ml-3">
+                        <h4 class="text-sm font-semibold text-black safe-area-right">GitHub Security</h4>
+                        <div class="flex items-center text-xs text-gray-500">
+                            <span class="safe-area-right">To: you@example.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between mt-2">
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <span class="safe-area-right">March 5, 10:42 AM</span>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="text-gray-500 mr-2">
+                            <i class="fas fa-reply"></i>
+                        </button>
+                        <button class="text-gray-500">
+                            <i class="fas fa-star"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Email Body -->
+            <div class="px-4 py-5 bg-white border-t border-gray-100">
+                <div class="prose max-w-none text-sm text-gray-800">
+                    <p class="mb-4 safe-area-right">We've detected a security vulnerability in one of the dependencies in your repository <strong>your-org/your-repo</strong>.</p>
+                    
+                    <p class="mb-4 safe-area-right">The vulnerability affects the following dependency:</p>
+                    
+                    <div class="bg-gray-50 p-3 rounded-md mb-4 safe-area-right">
+                        <p class="font-mono text-sm">lodash@4.17.15</p>
+                        <p class="text-xs text-gray-500 mt-1">Description: Prototype Pollution vulnerability in lodash allows attackers to modify the prototype of Object.</p>
+                        <p class="text-xs text-red-500 mt-1">Severity: High</p>
+                    </div>
+                    
+                    <p class="mb-4 safe-area-right">How to fix this vulnerability:</p>
+                    
+                    <ol class="list-decimal pl-5 mb-4 safe-area-right">
+                        <li class="mb-2">Update to lodash@4.17.21 or later version</li>
+                        <li class="mb-2">Run a security audit using npm audit or yarn audit</li>
+                        <li class="mb-2">Consider enabling Dependabot alerts for automatic notifications</li>
+                    </ol>
+                    
+                    <p class="mb-4 safe-area-right">We recommend addressing this issue as soon as possible to ensure your application remains secure.</p>
+                    
+                    <div class="mt-6 mb-4">
+                        <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium">View Advisory Details</a>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 mt-6 safe-area-right">This is an automated security alert from GitHub. If you have questions, please contact our support team.</p>
+                </div>
+            </div>
+            
+            <!-- Attachments -->
+            <div class="px-4 py-4 bg-white border-t border-gray-100">
+                <h4 class="text-sm font-bold text-black mb-3 safe-area-right">Attachments (1)</h4>
+                
+                <div class="flex items-center p-3 bg-gray-50 rounded-md safe-area-right">
+                    <div class="w-10 h-10 bg-blue-100 flex items-center justify-center rounded">
+                        <i class="fas fa-file-pdf text-blue-600"></i>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <p class="text-sm font-medium text-black">vulnerability-report.pdf</p>
+                        <p class="text-xs text-gray-500">245 KB</p>
+                    </div>
+                    <button class="text-blue-600">
+                        <i class="fas fa-download"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Reply Box -->
+        <div class="bg-white border-t border-gray-200 p-4">
+            <div class="flex items-center bg-gray-50 rounded-full px-4 py-2">
+                <i class="fas fa-reply text-gray-400 mr-2"></i>
+                <span class="text-gray-400 text-sm">Reply to GitHub...</span>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="bg-white border-t border-gray-200 py-3 px-8">
+            <div class="flex justify-between items-center">
+                <button class="flex flex-col items-center justify-center w-14 text-black">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span class="text-xs mt-1">Inbox</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-user-friends text-lg"></i>
+                    <span class="text-xs mt-1">Contacts</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-folder text-lg"></i>
+                    <span class="text-xs mt-1">Files</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-cog text-lg"></i>
+                    <span class="text-xs mt-1">Settings</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            height: 852px;
+            width: 393px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .setting-card {
+            transition: all 0.2s ease;
+        }
+        
+        .setting-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Custom scrollbar */
+        .custom-scrollbar {
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* Internet Explorer 10+ */
+        }
+        
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            display: none;
+            background: transparent;
+        }
+        
+        /* iOS Status Bar */
+        .ios-status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 15px 0;
+            height: 44px;
+            font-size: 12px;
+            font-weight: 600;
+            background-color: #f8f9fa;
+        }
+        
+        .ios-status-bar .time {
+            font-weight: 600;
+        }
+        
+        .ios-status-bar .right-icons {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .ios-status-bar .signal-bars {
+            display: flex;
+            align-items: flex-end;
+            height: 12px;
+            margin-right: 5px;
+        }
+        
+        .ios-status-bar .signal-bars .bar {
+            width: 3px;
+            background-color: #000;
+            margin-right: 1px;
+            border-radius: 1px;
+        }
+        
+        .ios-status-bar .signal-bars .bar:nth-child(1) { height: 5px; }
+        .ios-status-bar .signal-bars .bar:nth-child(2) { height: 7px; }
+        .ios-status-bar .signal-bars .bar:nth-child(3) { height: 9px; }
+        .ios-status-bar .signal-bars .bar:nth-child(4) { height: 11px; }
+        
+        .ios-status-bar .battery {
+            display: flex;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .ios-status-bar .battery-icon {
+            width: 25px;
+            height: 12px;
+            border: 1px solid #000;
+            border-radius: 3px;
+            padding: 1px;
+            position: relative;
+            margin-left: 5px;
+        }
+        
+        .ios-status-bar .battery-icon:after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            right: -3px;
+            width: 2px;
+            height: 4px;
+            background: #000;
+            border-radius: 0 2px 2px 0;
+        }
+        
+        .ios-status-bar .battery-level {
+            height: 100%;
+            width: 80%;
+            background: #000;
+            border-radius: 1px;
+        }
+        
+        .profile-header {
+            background: linear-gradient(to right, #4a6cf7, #5b8af7);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    
+    <div class="h-full flex flex-col">
+        <!-- iOS Status Bar -->
+        <div class="ios-status-bar">
+            <div class="time">15:27</div>
+            <div class="right-icons">
+                <div class="signal-bars">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="wifi">
+                    <i class="fas fa-wifi"></i>
+                </div>
+                <div class="battery">
+                    88%
+                    <div class="battery-icon">
+                        <div class="battery-level"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Header -->
+        <div class="profile-header pt-5 pb-6 text-white">
+            <div class="px-4 flex justify-between items-center mb-6">
+                <h1 class="text-xl font-bold">My Profile</h1>
+                <button class="p-2 rounded-full text-white hover:bg-white/10">
+                    <i class="fas fa-gear"></i>
+                </button>
+            </div>
+            
+            <!-- Profile Card -->
+            <div class="px-4 flex items-center">
+                <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center mr-4 border-2 border-white/50">
+                    <span class="text-blue-600 text-2xl font-semibold">L</span>
+                </div>
+                <div>
+                    <h2 class="text-lg font-semibold pr-4">Li Xiaoming</h2>
+                    <p class="text-sm text-white/80 pr-4">li.xiaoming@example.com</p>
+                    <div class="flex items-center mt-1">
+                        <div class="w-3 h-3 rounded-full bg-green-400 mr-2"></div>
+                        <span class="text-xs text-white/80">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Account Summary -->
+        <div class="p-4 bg-gray-50">
+            <div class="flex justify-between mb-2">
+                <div>
+                    <h3 class="text-sm font-medium text-gray-600 pr-4">Storage Used</h3>
+                    <p class="text-lg font-semibold text-black pr-4">14.5 GB <span class="text-xs text-gray-500">/ 15 GB</span></p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-medium text-gray-600 pr-4">Emails</h3>
+                    <p class="text-lg font-semibold text-black pr-4">3,254</p>
+                </div>
+            </div>
+            
+            <!-- Storage Bar -->
+            <div class="h-2 bg-gray-200 rounded-full mt-2 mb-1">
+                <div class="h-2 bg-blue-600 rounded-full" style="width: 95%;"></div>
+            </div>
+            <p class="text-xs text-gray-500 text-right">95% used</p>
+        </div>
+        
+        <!-- Settings List -->
+        <div class="flex-1 overflow-y-auto custom-scrollbar">
+            <!-- Account Section -->
+            <div class="px-4 py-3 border-b border-gray-100">
+                <h3 class="text-sm font-semibold text-gray-500 mb-2">ACCOUNT</h3>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-user text-blue-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Personal Info</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-shield-alt text-green-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Security</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-yellow-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-bell text-yellow-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Notifications</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-palette text-purple-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Appearance</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-globe text-red-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Language</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="text-xs text-gray-500 mr-2">English</span>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-question-circle text-gray-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">Help & Support</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+                
+                <div class="setting-card flex items-center justify-between p-3 hover:bg-gray-50 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center mr-3">
+                            <i class="fas fa-info-circle text-gray-600"></i>
+                        </div>
+                        <span class="text-sm text-black pr-4">About</span>
+                    </div>
+                    <i class="fas fa-chevron-right text-gray-400"></i>
+                </div>
+            </div>
+            
+            <!-- Sign out button -->
+            <div class="px-4 py-6 border-t border-gray-100">
+                <button class="w-full py-3 bg-gray-100 text-black rounded-lg text-sm font-medium hover:bg-gray-200">
+                    Sign Out
+                </button>
+            </div>
+        </div>
+        
+        <!-- Bottom Navigation -->
+        <div class="bg-white border-t border-gray-200 py-3 px-8">
+            <div class="flex justify-between items-center">
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span class="text-xs mt-1">Inbox</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-user-friends text-lg"></i>
+                    <span class="text-xs mt-1">Contacts</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-gray-400">
+                    <i class="fas fa-folder text-lg"></i>
+                    <span class="text-xs mt-1">Files</span>
+                </button>
+                <button class="flex flex-col items-center justify-center w-14 text-black">
+                    <i class="fas fa-cog text-lg"></i>
+                    <span class="text-xs mt-1">Settings</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
